@@ -35,7 +35,16 @@ class ViewController: UIViewController {
 			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 			])
 		tableView.dataSource = self
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.delegate = self
+		
+		tableView.backgroundColor = .none
+		tableView.bounces = false
+		tableView.separatorColor = .white
+		tableView.separatorStyle = .singleLine
+		tableView.showsVerticalScrollIndicator = false
+		
+		tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseId)
+		
 	}
 }
 
@@ -45,8 +54,12 @@ extension ViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		cell.textLabel?.text = posts[indexPath.row].title
+		let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseId, for: indexPath) as! PostTableViewCell
+		cell.configure(model: posts[indexPath.row])
 		return cell
 	}
+}
+
+extension ViewController: UITableViewDelegate {
+	
 }
