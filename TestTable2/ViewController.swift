@@ -10,10 +10,19 @@ import UIKit
 class ViewController: UIViewController {
 
 	private var tableView = UITableView()
+	private var posts: [Post] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
+		
+		APIManager.shared.getData { [weak self] data in
+			guard let self else {return}
+			self.posts = data
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+		}
 	}
 	
 	private func setupViews() {
@@ -29,19 +38,18 @@ class ViewController: UIViewController {
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 		
 		
-		APIManager.shared.getData()
 	}
 	
 }
 
 extension ViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		10
+		posts.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		cell.textLabel?.text = "\(indexPath.row)"
+		cell.textLabel?.text = posts[indexPath.row].title
 		return cell
 	}
 }
