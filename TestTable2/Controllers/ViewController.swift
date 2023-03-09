@@ -36,10 +36,7 @@ class ViewController: UIViewController {
 			])
 		tableView.dataSource = self
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-		
-		
 	}
-	
 }
 
 extension ViewController: UITableViewDataSource {

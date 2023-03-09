@@ -62,13 +62,10 @@
 			children = (
 				5BA72B9A29B9CFA500D1EB2A /* Model */,
 				5BA72B9529B9CDDD00D1EB2A /* API */,
-				5BA72B8129B9CB9C00D1EB2A /* AppDelegate.swift */,
-				5BA72B8329B9CB9C00D1EB2A /* SceneDelegate.swift */,
-				5BA72B8529B9CB9C00D1EB2A /* ViewController.swift */,
-				5BA72B8729B9CB9C00D1EB2A /* Main.storyboard */,
-				5BA72B8A29B9CB9D00D1EB2A /* Assets.xcassets */,
-				5BA72B8C29B9CB9D00D1EB2A /* LaunchScreen.storyboard */,
-				5BA72B8F29B9CB9D00D1EB2A /* Info.plist */,
+				5BA72B9C29B9D56100D1EB2A /* Application */,
+				5BA72B9D29B9D58500D1EB2A /* Controllers */,
+				5BA72B9E29B9D59200D1EB2A /* Storyboards */,
+				5BA72B9B29B9D54D00D1EB2A /* Resources */,
 			);
 			path = TestTable2;
 			sourceTree = "<group>";
@@ -87,6 +84,41 @@
 				5BA72B9829B9CFA000D1EB2A /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5BA72B9B29B9D54D00D1EB2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5BA72B8A29B9CB9D00D1EB2A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5BA72B9C29B9D56100D1EB2A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5BA72B8129B9CB9C00D1EB2A /* AppDelegate.swift */,
+				5BA72B8329B9CB9C00D1EB2A /* SceneDelegate.swift */,
+				5BA72B8F29B9CB9D00D1EB2A /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5BA72B9D29B9D58500D1EB2A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5BA72B8529B9CB9C00D1EB2A /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5BA72B9E29B9D59200D1EB2A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5BA72B8729B9CB9C00D1EB2A /* Main.storyboard */,
+				5BA72B8C29B9CB9D00D1EB2A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P8SQ2H48K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTable2/Info.plist;
+				INFOPLIST_FILE = TestTable2/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -341,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P8SQ2H48K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTable2/Info.plist;
+				INFOPLIST_FILE = TestTable2/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
