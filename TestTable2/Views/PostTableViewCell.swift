@@ -22,16 +22,15 @@ final class PostTableViewCell: UITableViewCell {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 25)
 		label.textColor = .white
+		label.text = "-10°"
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	func configure(model: Post) {
-		temperatureLabel.text = model.title
 		APIManager.shared.getImage(urlString: model.thumbnailURL) { [weak self] data in
 			guard let self else {return}
 			DispatchQueue.main.async {
-				
 				self.weatherImageView.image = data
 			}
 		}
@@ -48,6 +47,7 @@ final class PostTableViewCell: UITableViewCell {
 	}
 	
 	private func setupViews() {
+		backgroundColor = .clear
 		addSubview(weatherImageView)
 		addSubview(temperatureLabel)
 	}

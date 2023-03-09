@@ -16,6 +16,9 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		setupViews()
 		
+		view.backgroundColor = #colorLiteral(red: 0.2076590657, green: 0.2114921212, blue: 0.2280812562, alpha: 1)
+		
+		
 		APIManager.shared.getData { [weak self] data in
 			guard let self else {return}
 			self.posts = data
@@ -36,13 +39,11 @@ class ViewController: UIViewController {
 			])
 		tableView.dataSource = self
 		tableView.delegate = self
-		
-		tableView.backgroundColor = .none
+		tableView.backgroundColor = .clear
 		tableView.bounces = false
 		tableView.separatorColor = .white
 		tableView.separatorStyle = .singleLine
 		tableView.showsVerticalScrollIndicator = false
-		
 		tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseId)
 		
 	}
@@ -61,5 +62,14 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		170
+	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let detailViewController = DetailsViewController()
+		navigationController?.pushViewController(detailViewController, animated: true)
+		
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
 }

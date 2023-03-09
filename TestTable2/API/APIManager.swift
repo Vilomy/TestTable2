@@ -18,14 +18,12 @@ class APIManager {
 		let task = URLSession.shared.dataTask(with: request) { data, _, error in
 			guard let data else {return}
 			do {
-				
 				let postData = try JSONDecoder().decode([Post].self, from: data)
 				completion(postData)
 			} catch {
 				print("Error decoding")
 				print(error.localizedDescription)
 			}
-			
 		}
 		task.resume()
 	}
@@ -35,7 +33,6 @@ class APIManager {
 		let request = URLRequest(url: url)
 		let task = URLSession.shared.dataTask(with: request) { data, _, error in
 			guard let data else {return}
-			
 			DispatchQueue.global(qos: .background).async {
 				let image = UIImage(data: data)
 				completion(image)
