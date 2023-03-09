@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 		tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseId)
 		
 	}
+	
 }
 
 extension ViewController: UITableViewDataSource {
@@ -67,9 +68,11 @@ extension ViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let detailViewController = DetailsViewController()
-		navigationController?.pushViewController(detailViewController, animated: true)
-		
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let detailsVC = DetailsViewController()
+		detailsVC.configure(model: posts[indexPath.row])
+		
+		navigationController?.pushViewController(detailsVC, animated: true)
 	}
 }

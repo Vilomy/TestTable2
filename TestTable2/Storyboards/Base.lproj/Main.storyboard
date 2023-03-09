@@ -35,7 +35,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CF2-hO-Adx"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" destinationCreationSelector="DetailsViewController" id="CF2-hO-Adx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LI0-9W-KDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

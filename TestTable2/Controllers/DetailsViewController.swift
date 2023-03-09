@@ -9,6 +9,12 @@ import UIKit
 
 final class DetailsViewController: UIViewController {
 	
+	var fullImage: UIImage! {
+		didSet {
+			self.hugeImageView.image = fullImage
+		}
+	}
+	
 	private var scrollView: UIScrollView = {
 		let scrollView = UIScrollView()
 		scrollView.bounces = false
@@ -49,6 +55,16 @@ final class DetailsViewController: UIViewController {
 		scrollView.addSubview(hugeImageView)
 		scrollView.addSubview(descriptionLabel)
 	}
+	
+	func configure(model: Post) {
+		APIManager.shared.getImage(urlString: model.url) { [weak self] data in
+			guard let self else {return}
+			DispatchQueue.main.async {
+				self.fullImage = data
+			}
+		}
+	}
+	
 	
 	private func setConstraints() {
 		NSLayoutConstraint.activate([
